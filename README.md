@@ -7,3 +7,5 @@
   Task1 : led blink
 
   Task2 : control servo from Esp32 , from 0 to 90, can add loop also
+  
+  Task3 : establish communication between two esps and send data between them
