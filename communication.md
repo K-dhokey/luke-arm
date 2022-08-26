@@ -1,3 +1,5 @@
+# establishing communication between two esps
+### [resource]:(https://esp32io.com/tutorials/communication-between-two-esp32)
 #  wifi communication between two esps
 
 ## how to establish a Wi-Fi communication (HTTP) between two esps boards to exchange data without the need to connect to the internet (you don’t need a router).
