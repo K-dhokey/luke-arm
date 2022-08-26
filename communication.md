@@ -9,12 +9,15 @@ The client receives the readings and displays them on the OLED display.
 
 # you need the following parts:
 
-    2x ESP8266 Development boards – read Best ESP8266 Boards Comparison
+    2x ESP Development boards 
     BME280 sensor
     I2C SSD1306 OLED display
     Jumper Wires
     Breaboard
     
-    resource : https://randomnerdtutorials.com/esp8266-nodemcu-client-server-wi-fi/
+ [resource]:(https://randomnerdtutorials.com/esp8266-nodemcu-client-server-wi-fi/)
 
 # ESP-NOW Two-Way Communication Between ESP32 Boards
+##ESP-NOW is a connectionless communication protocol developed by Espressif that features short packet transmission. This protocol enables multiple devices to talk to each other without using Wi-Fi.
+
+ [resource]:(https://randomnerdtutorials.com/esp-now-two-way-communication-esp32/)
