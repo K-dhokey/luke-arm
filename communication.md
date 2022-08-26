@@ -21,3 +21,6 @@ The client receives the readings and displays them on the OLED display.
 ## ESP-NOW is a connectionless communication protocol developed by Espressif that features short packet transmission. This protocol enables multiple devices to talk to each other without using Wi-Fi.
 
 ### [resource]:(https://randomnerdtutorials.com/esp-now-two-way-communication-esp32/)
+
+# Communication between two ESP8266 via WiFi
+### [resource]:(https://www.aranacorp.com/en/communication-between-two-esp8266-via-wifi/)
