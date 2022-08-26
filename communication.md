@@ -20,3 +20,11 @@ The client receives the readings and displays them on the OLED display.
 # Communication between two ESP8266 via WiFi
 ### [resource]:(https://www.aranacorp.com/en/communication-between-two-esp8266-via-wifi/)
 
+# youtube resources i refered
+## ESP IDF WIFI Client connection of the esp32 and GET request from the internet site
+### [resource]:(https://youtu.be/AvJAg9m0x1E)
+## ESP-NOW - Peer to Peer ESP32 Network
+### [resource]:(https://youtu.be/bEKjCDDUPaU)
+## ESP32: How to setup ESP NOW for One Way Wireless Communication
+### [resource]: (https://youtu.be/CbcnxGJkY-Q)
+
