@@ -9,13 +9,6 @@ The client can make HTTP GET requests to the server to request sensor data or an
 The server listens for incoming requests and sends an appropriate response with the readings.
 The client receives the readings and displays them on the OLED display.
 
-## you need the following parts:
-
-    2x ESP Development boards 
-    BME280 sensor
-    I2C SSD1306 OLED display
-    Jumper Wires
-    Breaboard
     
  ### [resource]:(https://randomnerdtutorials.com/esp8266-nodemcu-client-server-wi-fi/)
 
