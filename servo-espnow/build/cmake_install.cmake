@@ -1,4 +1,4 @@
-# Install script for directory: /home/hp/esp/esp-idf/components/bootloader/subproject
+# Install script for directory: /home/hp/esp/esp-idf
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -39,17 +39,20 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/home/hp/esp/esp-idf/examples/wifi/espnow/build/bootloader/esp-idf/cmake_install.cmake")
+  include("/home/hp/esp/esp-idf/examples/wifi/espnow/build/bootloader/esp-idf/esp32/cmake_install.cmake")
+  include("/home/hp/esp/esp-idf/examples/wifi/espnow/build/bootloader/esp-idf/soc/cmake_install.cmake")
+  include("/home/hp/esp/esp-idf/examples/wifi/espnow/build/bootloader/esp-idf/xtensa/cmake_install.cmake")
+  include("/home/hp/esp/esp-idf/examples/wifi/espnow/build/bootloader/esp-idf/esp_common/cmake_install.cmake")
+  include("/home/hp/esp/esp-idf/examples/wifi/espnow/build/bootloader/esp-idf/esp_rom/cmake_install.cmake")
+  include("/home/hp/esp/esp-idf/examples/wifi/espnow/build/bootloader/esp-idf/log/cmake_install.cmake")
+  include("/home/hp/esp/esp-idf/examples/wifi/espnow/build/bootloader/esp-idf/partition_table/cmake_install.cmake")
+  include("/home/hp/esp/esp-idf/examples/wifi/espnow/build/bootloader/esp-idf/bootloader/cmake_install.cmake")
+  include("/home/hp/esp/esp-idf/examples/wifi/espnow/build/bootloader/esp-idf/micro-ecc/cmake_install.cmake")
+  include("/home/hp/esp/esp-idf/examples/wifi/espnow/build/bootloader/esp-idf/spi_flash/cmake_install.cmake")
+  include("/home/hp/esp/esp-idf/examples/wifi/espnow/build/bootloader/esp-idf/efuse/cmake_install.cmake")
+  include("/home/hp/esp/esp-idf/examples/wifi/espnow/build/bootloader/esp-idf/bootloader_support/cmake_install.cmake")
+  include("/home/hp/esp/esp-idf/examples/wifi/espnow/build/bootloader/esp-idf/esptool_py/cmake_install.cmake")
+  include("/home/hp/esp/esp-idf/examples/wifi/espnow/build/bootloader/esp-idf/main/cmake_install.cmake")
 
 endif()
 
-if(CMAKE_INSTALL_COMPONENT)
-  set(CMAKE_INSTALL_MANIFEST "install_manifest_${CMAKE_INSTALL_COMPONENT}.txt")
-else()
-  set(CMAKE_INSTALL_MANIFEST "install_manifest.txt")
-endif()
-
-string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
-       "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/hp/esp/esp-idf/examples/wifi/espnow/build/bootloader/${CMAKE_INSTALL_MANIFEST}"
-     "${CMAKE_INSTALL_MANIFEST_CONTENT}")
