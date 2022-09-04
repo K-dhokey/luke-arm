@@ -1,4 +1,4 @@
-# Install script for directory: /home/hp/esp/esp-idf/components/bootloader/subproject/main
+# Install script for directory: /home/hp/esp/esp-idf/examples/wifi/espnow/main
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
