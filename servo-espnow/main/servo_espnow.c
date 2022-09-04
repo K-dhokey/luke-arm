@@ -141,7 +141,7 @@ void app_main(void)
 
   char send_buffer[250];
 
-  for (int i = 0; i < 200; i++)
+  for (int i = 0; i < 2; i++)
   {
     sprintf(send_buffer, "Hello from %s message %d", my_mac_str, i);
     ESP_ERROR_CHECK(esp_now_send(NULL, (uint8_t *)send_buffer, strlen(send_buffer)));
