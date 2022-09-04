@@ -39,7 +39,7 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/home/hp/esp/esp-idf/examples/wifi/espnow/build/bootloader/esp-idf/soc/soc/esp32/cmake_install.cmake")
+  include("/home/hp/esp/esp-idf/examples/wifi/espnow/build/esp-idf/soc/soc/esp32/cmake_install.cmake")
 
 endif()
 
