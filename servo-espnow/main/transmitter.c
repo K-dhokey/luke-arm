@@ -85,10 +85,12 @@ void app_main(void)
 
   for (int i = 0; i < 1; i++)
   {
+    int angle_to_be_sent = 30;
     sprintf(send_buffer, "Hello from %s message %d", my_mac_str, i);
-    mydata.a = 30; 
-    ESP_ERROR_CHECK(esp_now_send(esp_1,(uint8_t *)&mydata, sizeof(mydata)));
+    // mydata.a = 30; 
+    ESP_ERROR_CHECK(esp_now_send(esp_1,(uint8_t *)&angle_to_be_sent, sizeof(angle_to_be_sent)));
     vTaskDelay(pdMS_TO_TICKS(1000));
   }
 
 }
+
