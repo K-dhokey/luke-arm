@@ -30,7 +30,7 @@ void on_receive(const uint8_t * mac, const uint8_t *incomingData, int len)
     return;
   }
   int *received_data = (int *)incomingData;
-  angle = *received_data;
+  ang = *received_data;
   // printf("Data received: ");
   printf("%d\n",len);
   printf("%d\n",mydata.a);
