@@ -9,4 +9,6 @@
   Task2 : control servo from Esp32 , from 0 to 90, can add loop also
   
   Task3 : establish communication between two esps and send data between them
+  
+  Task4 : control servo motor from remote esp32 
 
