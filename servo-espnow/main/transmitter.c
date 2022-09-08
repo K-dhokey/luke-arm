@@ -12,8 +12,8 @@
 
 #define TAG "ESP_NOW"
 
-uint8_t esp_1[6] = {0x3c, 0x61, 0x5, 0x12, 0xde, 0x94};
-uint8_t esp_2[6] = {0x44, 0x17, 0x93, 0xe6, 0x34, 0x90};
+uint8_t esp_1[6] = {0x44, 0x17, 0x93, 0xe6, 0x34, 0x90};
+uint8_t esp_2[6] = {0x3c, 0x61, 0x5, 0x12, 0xde, 0x94};
 
 int int_value;
 
@@ -83,15 +83,13 @@ void app_main(void)
 
   char send_buffer[250];
 
-  for (int i = 0; i < 1; i++)
+  for (int i = 0; i < 10; i++)
   {
-    int angle_to_be_sent = 30;
     sprintf(send_buffer, "Hello from %s message %d", my_mac_str, i);
-    // mydata.a = 30; 
-    ESP_ERROR_CHECK(esp_now_send(esp_1,(uint8_t *)&angle_to_be_sent, sizeof(angle_to_be_sent)));
+    mydata.a = 45 ; 
+    ESP_ERROR_CHECK(esp_now_send(esp_1,(uint8_t *)&mydata, sizeof(mydata)));
     vTaskDelay(pdMS_TO_TICKS(1000));
   }
 
 }
 
- 
