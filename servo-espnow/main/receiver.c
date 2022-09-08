@@ -14,12 +14,12 @@
 
 typedef struct struct_message 
 {
-  int a;
+  int a  ;
 } struct_message;
  
 // Create a structured object
 struct_message mydata;
-int angle = 0;
+int ang = 0;
 
  
 // Callback function executed when data is received
@@ -59,7 +59,7 @@ static void mcpwm_example_gpio_initialize(void)
 static uint32_t servo_per_degree_init(uint32_t degree_of_rotation)
 {
     uint32_t cal_pulsewidth = 0;
-    cal_pulsewidth = (SERVO_MIN_PULSEWIDTH + (((SERVO_MAX_PULSEWIDTH - SERVO_MIN_PULSEWIDTH) * (degree_of_rotation)) / (angle)));
+    cal_pulsewidth = (SERVO_MIN_PULSEWIDTH + (((SERVO_MAX_PULSEWIDTH - SERVO_MIN_PULSEWIDTH) * (degree_of_rotation)) / (ang)));
     return cal_pulsewidth;
 }
 
@@ -83,7 +83,7 @@ void mcpwm_example_servo_control(void *arg)
     pwm_config.duty_mode = MCPWM_DUTY_MODE_0;
     mcpwm_init(MCPWM_UNIT_0, MCPWM_TIMER_0, &pwm_config);    //Configure PWM0A & PWM0B with above settings
     while (1) {
-        for (count = 0; count < angle; count++) {
+        for (count = 0; count < ang; count++) {
             printf("Angle of rotation: %d\n", count);
             angle = servo_per_degree_init(count);
             printf("pulse width: %dus\n", angle);
