@@ -14,12 +14,11 @@
 
 typedef struct struct_message 
 {
-  int a  ;
+  int a;
 } struct_message;
  
 // Create a structured object
 struct_message mydata;
-int ang = 0;
 
  
 // Callback function executed when data is received
@@ -29,17 +28,15 @@ void on_receive(const uint8_t * mac, const uint8_t *incomingData, int len)
     printf("Error while receving data");
     return;
   }
-  int *received_data = (int *)incomingData;
-  ang = *received_data;
+  memcpy(&mydata, incomingData, sizeof(mydata));
   // printf("Data received: ");
   printf("%d\n",len);
   printf("%d\n",mydata.a);
- 
 }
  
 #define SERVO_MIN_PULSEWIDTH 1000 //Minimum pulse width in microsecond
 #define SERVO_MAX_PULSEWIDTH 2000 //Maximum pulse width in microsecond
-//#define SERVO_MAX_DEGREE mydata.a //Maximum angle in degree upto which servo can rotate
+#define SERVO_MAX_DEGREE mydata.a//Maximum angle in degree upto which servo can rotate
 
 
 static void mcpwm_example_gpio_initialize(void)
@@ -59,7 +56,7 @@ static void mcpwm_example_gpio_initialize(void)
 static uint32_t servo_per_degree_init(uint32_t degree_of_rotation)
 {
     uint32_t cal_pulsewidth = 0;
-    cal_pulsewidth = (SERVO_MIN_PULSEWIDTH + (((SERVO_MAX_PULSEWIDTH - SERVO_MIN_PULSEWIDTH) * (degree_of_rotation)) / (ang)));
+    cal_pulsewidth = (SERVO_MIN_PULSEWIDTH + (((SERVO_MAX_PULSEWIDTH - SERVO_MIN_PULSEWIDTH) * (degree_of_rotation)) / (SERVO_MAX_DEGREE)));
     return cal_pulsewidth;
 }
 
@@ -83,7 +80,7 @@ void mcpwm_example_servo_control(void *arg)
     pwm_config.duty_mode = MCPWM_DUTY_MODE_0;
     mcpwm_init(MCPWM_UNIT_0, MCPWM_TIMER_0, &pwm_config);    //Configure PWM0A & PWM0B with above settings
     while (1) {
-        for (count = 0; count < ang; count++) {
+        for (count = 0; count < SERVO_MAX_DEGREE; count++) {
             printf("Angle of rotation: %d\n", count);
             angle = servo_per_degree_init(count);
             printf("pulse width: %dus\n", angle);
@@ -108,7 +105,7 @@ void app_main(void)
   ESP_ERROR_CHECK(esp_now_init());
   ESP_ERROR_CHECK(esp_now_register_recv_cb(on_receive));
 
-    printf("Testing servo motor.......\n");
+    printf("Testing servo motor.......\n message received from 441793e63490 ");
     xTaskCreate(mcpwm_example_servo_control, "mcpwm_example_servo_control", 4096, NULL, 5, NULL);
 
 
@@ -116,5 +113,5 @@ void app_main(void)
 
 void loop() 
 {
-  vTaskDelay(1000);
+  vTaskDelay(10);
 }
