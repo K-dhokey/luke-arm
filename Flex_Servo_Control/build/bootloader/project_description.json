@@ -1,0 +1,21 @@
+{
+    "project_name":       "bootloader",
+    "project_path":       "/home/visitorguy/esp/esp-idf/components/bootloader/subproject",
+    "build_dir":          "/home/visitorguy/Desktop/luke-arm/Receiver/build/bootloader",
+    "config_file":        "/home/visitorguy/Desktop/luke-arm/Receiver/sdkconfig",
+    "config_defaults":    "",
+    "app_elf":            "bootloader.elf",
+    "app_bin":            "bootloader.bin",
+    "git_revision":       "v4.4.2-dirty",
+    "target":             "esp32",
+    "rev":                "0",
+    "phy_data_partition": "",
+    "monitor_baud" :      "115200",
+    "monitor_toolprefix": "xtensa-esp32-elf-",
+    "config_environment" : {
+        "COMPONENT_KCONFIGS" : "/home/visitorguy/esp/esp-idf/components/efuse/Kconfig;/home/visitorguy/esp/esp-idf/components/esp32/Kconfig;/home/visitorguy/esp/esp-idf/components/esp_common/Kconfig;/home/visitorguy/esp/esp-idf/components/esp_hw_support/Kconfig;/home/visitorguy/esp/esp-idf/components/esp_system/Kconfig;/home/visitorguy/esp/esp-idf/components/freertos/Kconfig;/home/visitorguy/esp/esp-idf/components/hal/Kconfig;/home/visitorguy/esp/esp-idf/components/log/Kconfig;/home/visitorguy/esp/esp-idf/components/newlib/Kconfig;/home/visitorguy/esp/esp-idf/components/spi_flash/Kconfig",
+        "COMPONENT_KCONFIGS_PROJBUILD" : "/home/visitorguy/esp/esp-idf/components/bootloader/Kconfig.projbuild;/home/visitorguy/esp/esp-idf/components/esp_rom/Kconfig.projbuild;/home/visitorguy/esp/esp-idf/components/esptool_py/Kconfig.projbuild;/home/visitorguy/esp/esp-idf/components/partition_table/Kconfig.projbuild"
+    },
+    "build_components" : [ "bootloader", "bootloader_support", "efuse", "esp32", "esp_common", "esp_hw_support", "esp_rom", "esp_system", "esptool_py", "freertos", "hal", "log", "main", "micro-ecc", "newlib", "partition_table", "soc", "spi_flash", "xtensa", "" ],
+    "build_component_paths" : [ "/home/visitorguy/esp/esp-idf/components/bootloader", "/home/visitorguy/esp/esp-idf/components/bootloader_support", "/home/visitorguy/esp/esp-idf/components/efuse", "/home/visitorguy/esp/esp-idf/components/esp32", "/home/visitorguy/esp/esp-idf/components/esp_common", "/home/visitorguy/esp/esp-idf/components/esp_hw_support", "/home/visitorguy/esp/esp-idf/components/esp_rom", "/home/visitorguy/esp/esp-idf/components/esp_system", "/home/visitorguy/esp/esp-idf/components/esptool_py", "/home/visitorguy/esp/esp-idf/components/freertos", "/home/visitorguy/esp/esp-idf/components/hal", "/home/visitorguy/esp/esp-idf/components/log", "/home/visitorguy/esp/esp-idf/components/bootloader/subproject/main", "/home/visitorguy/esp/esp-idf/components/bootloader/subproject/components/micro-ecc", "/home/visitorguy/esp/esp-idf/components/newlib", "/home/visitorguy/esp/esp-idf/components/partition_table", "/home/visitorguy/esp/esp-idf/components/soc", "/home/visitorguy/esp/esp-idf/components/spi_flash", "/home/visitorguy/esp/esp-idf/components/xtensa", "" ]
+}
