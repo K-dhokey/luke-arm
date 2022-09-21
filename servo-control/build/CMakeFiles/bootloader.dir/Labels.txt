@@ -1,13 +1,13 @@
 # Target labels
  bootloader
 # Source files and their labels
-/home/hp/esp/esp-idf/examples/peripherals/mcpwm/mcpwm_servo_control/build/CMakeFiles/bootloader
-/home/hp/esp/esp-idf/examples/peripherals/mcpwm/mcpwm_servo_control/build/CMakeFiles/bootloader.rule
-/home/hp/esp/esp-idf/examples/peripherals/mcpwm/mcpwm_servo_control/build/CMakeFiles/bootloader-complete.rule
-/home/hp/esp/esp-idf/examples/peripherals/mcpwm/mcpwm_servo_control/build/bootloader-prefix/src/bootloader-stamp/bootloader-build.rule
-/home/hp/esp/esp-idf/examples/peripherals/mcpwm/mcpwm_servo_control/build/bootloader-prefix/src/bootloader-stamp/bootloader-configure.rule
-/home/hp/esp/esp-idf/examples/peripherals/mcpwm/mcpwm_servo_control/build/bootloader-prefix/src/bootloader-stamp/bootloader-download.rule
-/home/hp/esp/esp-idf/examples/peripherals/mcpwm/mcpwm_servo_control/build/bootloader-prefix/src/bootloader-stamp/bootloader-install.rule
-/home/hp/esp/esp-idf/examples/peripherals/mcpwm/mcpwm_servo_control/build/bootloader-prefix/src/bootloader-stamp/bootloader-mkdir.rule
-/home/hp/esp/esp-idf/examples/peripherals/mcpwm/mcpwm_servo_control/build/bootloader-prefix/src/bootloader-stamp/bootloader-patch.rule
-/home/hp/esp/esp-idf/examples/peripherals/mcpwm/mcpwm_servo_control/build/bootloader-prefix/src/bootloader-stamp/bootloader-update.rule
+/home/visitorguy/luke-arm/servo-control/build/CMakeFiles/bootloader
+/home/visitorguy/luke-arm/servo-control/build/CMakeFiles/bootloader.rule
+/home/visitorguy/luke-arm/servo-control/build/CMakeFiles/bootloader-complete.rule
+/home/visitorguy/luke-arm/servo-control/build/bootloader-prefix/src/bootloader-stamp/bootloader-install.rule
+/home/visitorguy/luke-arm/servo-control/build/bootloader-prefix/src/bootloader-stamp/bootloader-mkdir.rule
+/home/visitorguy/luke-arm/servo-control/build/bootloader-prefix/src/bootloader-stamp/bootloader-download.rule
+/home/visitorguy/luke-arm/servo-control/build/bootloader-prefix/src/bootloader-stamp/bootloader-update.rule
+/home/visitorguy/luke-arm/servo-control/build/bootloader-prefix/src/bootloader-stamp/bootloader-patch.rule
+/home/visitorguy/luke-arm/servo-control/build/bootloader-prefix/src/bootloader-stamp/bootloader-configure.rule
+/home/visitorguy/luke-arm/servo-control/build/bootloader-prefix/src/bootloader-stamp/bootloader-build.rule
