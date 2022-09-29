@@ -9,7 +9,8 @@
   - The pairing between devices is needed prior to their communication. After the pairing is done, the connection is secure and peer-to-peer.
   - ESP NOW does not require a router for the connection,Thus this project can be used anywhere,at any remote places.
   - If suddenly one of the boards loses power or resets, when it restarts, it will automatically connect to its peers.
-
+  
+##### To read more about the project refer this documentation
 
 ## Table of contents
 - #### About the project
@@ -38,7 +39,7 @@
 
 ## Getting started 
 ### Prerequisites
-##### To flash this project install ESP-IDF: https://github.com/espressif/esp-idf
+##### To flash this project install ESP-IDF(ESP-IDF v4.0 and above): https://github.com/espressif/esp-idf. You can visit the ESP-IDF Programmming Guide for the installation steps.
 
 ## Cloning the repository
 ##### Clone the project by typing the following command in your Terminal/CommandPrompt
@@ -49,21 +50,24 @@
 
 ## Usage
 
-##### After following the above steps , use the following commands to: Build
+##### After following the above steps , use the following commands to:
+##### build
 
 ```
 idf.py build
 ```
-
-##### Flash
-```
-idf.py -p (PORT) flash monitor
-```
-
 ##### Configuration
 
 ```
 idf.py menuconfig
 ```
-## 
+##### Flash and monitor : 
+##### Connect two esp32 through ports and run the following command on two seprate terminals.The terminals will act as user interface.
+
+```
+idf.py -p (PORT) flash monitor
+```
+
+
+
 
