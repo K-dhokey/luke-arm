@@ -37,7 +37,7 @@
 - Esp-now
 ## File structure
 
- .
+ ```
 ├── Components              # Contains files of specific library of functions or Hardware used
 │    ├──esp_now             # Contains the code to setup connection using ESP-NOW. 
 │    ├──CMakeLists.txt      # To include this component in a esp-idf 
@@ -51,6 +51,7 @@
 ├── CmakeLists.txt          # To include components and main folder while executing
 ├── LICENSE
 └── README.md 
+```
 
 ## Getting started 
 ### Prerequisites
