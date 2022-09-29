@@ -23,11 +23,10 @@
 - #### License
 
 ## About the project
-#### Tech stack 
+## Tech stack 
 ##### The following technologies were used for this project:
-      - ESP-IDF
-      - FreeRTOS
-      - Esp-now
+- ESP-IDF
+- FreeRTOS
+- Esp-now
       
        
-
