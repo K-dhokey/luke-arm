@@ -4,10 +4,10 @@
 
 ## Table of contents
 - #### about the project
-- tech stack
-- file structure
+  - tech stack
+  - file structure
 - #### Getting Started
-- prerequisites
+  - prerequisites
 - #### Usage
 - #### Connections
 - #### Theory and Approach
