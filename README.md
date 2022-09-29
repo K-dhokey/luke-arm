@@ -45,18 +45,18 @@ Designing a cost effective arm housing 5 servos controlled by one slave esp-32 t
 
 ##### After following the above steps , use the following commands to: Build
 
-,,,
+```
 idf.py build
-,,,
+```
 
 ##### Flash
-
+```
 idf.py -p (PORT) flash monitor
-
+```
 
 ##### Configuration
 
-
+```
 idf.py menuconfig
-
+```
        
