@@ -3,10 +3,10 @@
 ### human emulating robotic hand
 
 ## Table of contents
-####about the project
+#### about the project
 - tech stack
 - file structure
-####Getting Started
+#### Getting Started
 -prerequisites
 #### Usage
 #### Connections
