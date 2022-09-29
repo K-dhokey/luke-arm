@@ -67,7 +67,15 @@ idf.py menuconfig
 ```
 idf.py -p (PORT) flash monitor
 ```
+## contributors
 
+- Kamakshi Dhokey
+- Vaidic Gupta
 
+## Acknowledgements and Resources
+  
+   - SRA VJTI Eklavya 2022
+   - Refered FreeRTOS for FreeRTOS API.
+   - Refered ESP_NOW for ESP-NOW API.
 
 
