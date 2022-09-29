@@ -1,14 +1,25 @@
-# luke-arm
-# human emulating robotic hand
-# Tasks :
 
-  Task0 : hello world 
+Luke Arm
+human emulating robotic hand
 
-  Task1 : led blink
+Table of Contents
 
-  Task2 : control servo from Esp32 , from 0 to 90, can add loop also
-  
-  Task3 : establish communication between two esps and send data between them
-  
-  Task4 : control servo motor from remote esp32 
+    Luke Arm
+        Table of Contents
+        Demonstrations
+        About the project
+            Tech Stack
+            File Structure
+            Data Processing
+            Program Flow:
+        A2DP-Sink:
+        Example Output
+        WM8960:
+        Getting Started
+            Prerequisites
+            Installation
+        Usage
+            Configuration
+        Contributors
+        Acknowledgements and Resources
 
