@@ -7,7 +7,7 @@
 
 ## Table of contents
 - #### About the project
-  - tech stack
+  - Tech stack
   - file structure
 - #### Getting Started
   - prerequisites
@@ -23,5 +23,11 @@
 - #### License
 
 ## About the project
-### 
+#### Tech stack 
+##### The following technologies were used for this project:
+      - ESP-IDF
+      - FreeRTOS
+      - Esp-now
+      
+       
 
