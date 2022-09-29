@@ -28,5 +28,31 @@ Designing a cost effective arm housing 5 servos controlled by one slave esp-32 t
 - ESP-IDF
 - FreeRTOS
 - Esp-now
-      
+## File structure
+
+## Getting started 
+### Prerequisites
+##### To flash this project install ESP-IDF: https://github.com/espressif/esp-idf
+
+## Cloning the repository
+##### Clone the project by typing the following command in your Terminal/CommandPrompt
+
+## Hardware
+### Connections
+##### Connect the ESP32 to your device via USB to flash the code in it.
+
+## Usage
+
+##### After following the above steps , use the following commands to: Build
+...
+idf.py build
+...
+##### Flash
+...
+idf.py -p (PORT) flash monitor
+...
+##### Configuration
+...
+idf.py menuconfig
+...
        
