@@ -39,7 +39,7 @@ Designing a cost effective arm housing 5 servos controlled by one slave esp-32 t
 
 ## Hardware
 ### Connections
-##### Connect the ESP32 to your device via USB to flash the code in it.
+##### Connect both ESP-32 to your device via USB to flash the code in it. flash the
 
 ## Usage
 
@@ -59,4 +59,5 @@ idf.py -p (PORT) flash monitor
 ```
 idf.py menuconfig
 ```
-       
+## 
+
