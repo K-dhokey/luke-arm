@@ -25,7 +25,7 @@
   - Acknowledgements and Resources
   - License
 
-### About the projectC
+### About the project
 - communication protocol used is ESP-NOW as:
 
   - It overcomes the drawbacks of traditonal wifi connection.
