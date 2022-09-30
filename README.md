@@ -105,7 +105,7 @@ idf.py -p /dev/ttyUSB1 flash monitor
 * When the data is received,the servos pull the fingers leading to hand movements.
 
 
-![**flowchart**]()
+
 <!-- RESULTS AND DEMO -->
 ## Results and Demo
  
@@ -113,8 +113,8 @@ idf.py -p /dev/ttyUSB1 flash monitor
 
 <!-- CONTRIBUTORS -->
 ## Contributors
-* kamakshi dhokey
-* vaidic gupta
+* [Kamakshi Dhokey] (https://github.com/K-dhokey)
+* Vaidic Gupta
 
 
 <!-- ACKNOWLEDGEMENTS AND REFERENCES -->
