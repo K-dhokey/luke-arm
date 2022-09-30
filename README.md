@@ -29,13 +29,13 @@
   - Acknowledgements and Resources
   - License
 
-## About the project
-## Tech stack 
-##### The following technologies were used for this project:
-- ESP-IDF
-- FreeRTOS
-- Esp-now
-## File structure
+### About the project
+#### Tech stack 
+- The following technologies were used for this project:
+  - ESP-IDF
+  - FreeRTOS
+  - Esp-now
+#### File structure
 
  ```
 ├── Components              # Contains files of specific library of functions or Hardware used
@@ -53,42 +53,42 @@
 └── README.md 
 ```
 
-## Getting started 
-### Prerequisites
-##### To flash this project install ESP-IDF(ESP-IDF v4.0 and above): https://github.com/espressif/esp-idf. You can visit the ESP-IDF Programmming Guide for the installation steps.
+### Getting started 
+- Prerequisites
+  -To flash this project install ESP-IDF(ESP-IDF v4.0 and above): https://github.com/espressif/esp-idf. You can visit the ESP-IDF Programmming Guide for the installation steps.
 
-## Cloning the repository
-##### Clone the project by typing the following command in your Terminal/CommandPrompt
+#### Cloning the repository
+-Clone the project by typing the following command in your Terminal/CommandPrompt
 
-## Hardware
-### Connections
-##### Connect both ESP-32 to your device via USB to flash the code in it. flash the
+### Hardware
+- Connections
+ -Connect both ESP-32 to your device via USB to flash the code in it. flash the
 
-## Usage
+### Usage
 
-##### After following the above steps , use the following commands to:
-##### build
+#### After following the above steps , use the following commands to:
+- build
 
 ```
 idf.py build
 ```
-##### Configuration
+#### Configuration
 
 ```
 idf.py menuconfig
 ```
-##### Flash and monitor : 
-##### Connect two esp32 through ports and run the following command on two seprate terminals.The terminals will act as user interface.
+#### Flash and monitor : 
+#### Connect two esp32 through ports and run the following command on two seprate terminals.The terminals will act as user interface.
 
 ```
 idf.py -p (PORT) flash monitor
 ```
-## contributors
+### contributors
 
 - Kamakshi Dhokey
 - Vaidic Gupta
 
-## Acknowledgements and Resources
+### Acknowledgements and Resources
   
    - SRA VJTI Eklavya 2022
    - Refered FreeRTOS for FreeRTOS API.
