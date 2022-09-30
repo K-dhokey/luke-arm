@@ -121,7 +121,7 @@ idf.py -p /dev/ttyUSB1 flash monitor
 ## Acknowledgements and Resources
 * [SRA VJTI](http://sra.vjti.info/) Eklavya 2020
 * Special thanks 
-  om sheladia,rishikesh donadkar 
+  [om sheladia](https://github.com/omsheladia) ,[rishikesh donadkar](https://github.com/RISHI27-dot) 
 * Refered [FreeRTOS](https://www.freertos.org/) for FreeRTOS API.
 * Refered [ESP_NOW](https://docs.espressif.com/projects/esp-idf/en/latest/esp32/api-reference/network/esp_now.html) for ESP-NOW API.
 
