@@ -13,21 +13,21 @@
 ##### To read more about the project refer this documentation
 
 ## Table of contents
-- #### About the project
-  - Tech stack
-  - file structure
-- #### Getting Started
-  - prerequisites
-- #### Usage
-- #### Connections
-- #### Theory and Approach
-- #### Results and Demo
-- #### Code Flowchart
-- #### Future Work
-- #### Troubleshooting
-- #### Contributors
-- #### Acknowledgements and Resources
-- #### License
+  - About the project
+    - Tech stack
+    - file structure
+  - Getting Started
+    - prerequisites
+  - Usage
+  - Connections
+  - Theory and Approach
+  - Results and Demo
+  - Code Flowchart
+  - Future Work
+  - Troubleshooting
+  - Contributors
+  - Acknowledgements and Resources
+  - License
 
 ## About the project
 ## Tech stack 
