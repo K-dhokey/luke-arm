@@ -68,10 +68,8 @@ To read more about the project refer this [documentation](https://github.com/RIS
   You can visit the [ESP-IDF Programmming Guide](https://docs.espressif.com/projects/esp-idf/en/latest/get-started/index.html#installation-step-by-step) for the installation steps.
 
 ### Installation
-Clone the repo
-```sh
 
-```
+
 
 
 <!-- USAGE EXAMPLES -->
