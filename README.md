@@ -58,11 +58,11 @@
   -To flash this project install ESP-IDF(ESP-IDF v4.0 and above): https://github.com/espressif/esp-idf. You can visit the ESP-IDF Programmming Guide for the installation steps.
 
 #### Cloning the repository
--Clone the project by typing the following command in your Terminal/CommandPrompt
+- Clone the project by typing the following command in your Terminal/CommandPrompt
 
 ### Hardware
 - Connections
- -Connect both ESP-32 to your device via USB to flash the code in it. flash the
+ - Connect both ESP-32 to your device via USB to flash the code in it. flash the
 
 ### Usage
 
@@ -72,13 +72,13 @@
 ```
 idf.py build
 ```
-#### Configuration
+- Configuration
 
 ```
 idf.py menuconfig
 ```
-#### Flash and monitor : 
-#### Connect two esp32 through ports and run the following command on two seprate terminals.The terminals will act as user interface.
+- Flash and monitor : 
+ Connect two esp32 through ports and run the following command on two seprate terminals.The terminals will act as user interface.
 
 ```
 idf.py -p (PORT) flash monitor
