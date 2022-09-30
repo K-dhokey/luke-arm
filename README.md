@@ -3,100 +3,130 @@
 
 ### human emulating robotic hand
 
-- Designing a cost effective arm housing 5 servos controlled by one slave esp-32 taking commands from a remote esp-32 by establishing wifi communication between the two,essentially one acting as a server and the other as a client.The user will have to relay finger flex data to the arm and control the servos using client esp accordingly.
+<!-- TABLE OF CONTENTS -->
+## Table of Contents
 
-  
-##### To read more about the project refer this documentation
+* [About the Project](#about-the-project)
+  * [Tech Stack](#tech-stack)
+  * [File Structure](#file-structure)
+* [Getting Started](#getting-started)
+  * [Prerequisites](#prerequisites)
+  * [Installation](#installation)
+* [Usage](#usage)
+* [Results and Demo](#results-and-demo)
+* [Future Work](#future-work)
+* [Troubleshooting](#troubleshooting)
+* [Contributors](#contributors)
+* [Acknowledgements and Resources](#acknowledgements-and-resources)
+* [License](#license)
 
-## Table of contents
-  - [About the project]
-    - Tech stack
-    - file structure
-  - Getting Started
-    - prerequisites
-  - Usage
-  - Connections
-  - Theory and Approach
-  - Results and Demo
-  - Code Flowchart
-  - Future Work
-  - Troubleshooting
-  - Contributors
-  - Acknowledgements and Resources
-  - License
 
-### About the project
-- communication protocol used is ESP-NOW as:
+<!-- ABOUT THE PROJECT -->
+## About The Project
 
-  - It overcomes the drawbacks of traditonal wifi connection.
 
-  - The pairing between devices is needed prior to their communication. After the pairing is done, the connection is secure and peer-to-peer.
+* Aim of the project is designing a cost effective arm housing 5 servos controlled by one slave esp-32 taking commands from a remote esp-32 by establishing wifi communication between the two,essentially one acting as a server and the other as a client.The user will have to relay finger flex data to the arm and control the servos using client esp accordingly.
 
-  - ESP NOW does not require a router for the connection,Thus this project can be used anywhere,at any remote places.
+* Communication protocol used is ESP-NOW as
+  * It overcomes the drawbacks of traditonal wifi connection.
+  * The pairing between devices is needed prior to their communication. After the pairing is done, the connection is secure and peer-to-peer.
+  * ESP NOW does not require a router for the connection,Thus this project can be used anywhere,at any remote places.
+  * If suddenly one of the boards loses power or resets, when it restarts, it will automatically connect to its peers.
 
-  - If suddenly one of the boards loses power or resets, when it restarts, it will automatically connect to its peers.
-#### Tech stack 
-- The following technologies were used for this project:
-  - ESP-IDF
-  - FreeRTOS
-  - Esp-now
-#### File structure
+To read more about the project refer this [documentation](https://github.com/RISHI27-dot/ESP32-chat-communication-over-wifi/blob/testing1/docs/report.pdf)
 
- ```
-├── Components              # Contains files of specific library of functions or Hardware used
-│    ├──esp_now             # Contains the code to setup connection using ESP-NOW. 
-│    ├──CMakeLists.txt      # To include this component in a esp-idf 
-├── docs                    # Documentation files 
-│   ├── report.pdf          # Project report
-│   └── results             # Folder containing the video, gifs of the result
-├── main                    # Source files of project
-│   ├──main.c               # Main Source code.
-│   ├──kconfig.projbuild    # Shows the menu of project configuration
-│   ├──CMakeLists.txt       # To include source code files in esp-idf.
-├── CmakeLists.txt          # To include components and main folder while executing
-├── LICENSE
-└── README.md 
-```
+### Tech Stack
 
-### Getting started 
-- Prerequisites
-  -To flash this project install ESP-IDF(ESP-IDF v4.0 and above): https://github.com/espressif/esp-idf. You can visit the ESP-IDF Programmming Guide for the installation steps.
+* [FreeRTOS](https://www.freertos.org/openrtos.html)
+* [ESP-IDF](https://docs.espressif.com/projects/esp-idf/en/latest/esp32/)
 
-#### Cloning the repository
-- Clone the project by typing the following command in your Terminal/CommandPrompt
 
-### Hardware
-- Connections
- - Connect both ESP-32 to your device via USB to flash the code in it. flash the
+### File Structure
+     .
+    ├── Components              # Contains files of specific library of functions or Hardware used
+    │    ├──esp_now             # Contains the code to setup connection using ESP-NOW. 
+    │    ├──CMakeLists.txt      # To include this component in a esp-idf 
+    ├── docs                    # Documentation files 
+    │   ├── report.pdf          # Project report
+    │   └── results             # Folder containing the video, gifs of the result
+    ├── main                    # Source files of project
+    │   ├──main.c               # Main Source code.
+    │   ├──kconfig.projbuild    # Shows the menu of project configuration
+    │   ├──CMakeLists.txt       # To include source code files in esp-idf.
+    ├── CmakeLists.txt          # To include components and main folder while executing
+    ├── LICENSE
+    └── README.md 
+    
 
-### Usage
+<!-- GETTING STARTED -->
+## Getting Started
 
-#### After following the above steps , use the following commands to:
-- build
+### Prerequisites
+
+* **ESP-IDF v4.0 and above**
+
+  You can visit the [ESP-IDF Programmming Guide](https://docs.espressif.com/projects/esp-idf/en/latest/get-started/index.html#installation-step-by-step) for the installation steps.
+
+### Installation
+Clone the repo
+```sh
 
 ```
-idf.py build
-```
-- Configuration
+
+
+<!-- USAGE EXAMPLES -->
+## Usage
+### Configuration
 
 ```
 idf.py menuconfig
 ```
-- Flash and monitor : 
- Connect two esp32 through ports and run the following command on two seprate terminals.The terminals will act as user interface.
+
+### Build
+```
+idf.py build
+```
+### Flash and Monitor
+* Connect two esp32 through ports and run the following command on two seprate terminals.
+* The terminals will act as user interface. 
+```
+idf.py -p /dev/ttyUSB0 flash monitor
 
 ```
-idf.py -p (PORT) flash monitor
 ```
-### contributors
+idf.py -p /dev/ttyUSB1 flash monitor
 
-- Kamakshi Dhokey
-- Vaidic Gupta
+```
+<!-- CODE  -->
+## Code
+* The input of finger flex data is taken from the user connected to master esp32.
+* This data is sent through espnow and is sent to other slave esp32 board.
+* the slave esp32 controls the servos based on the data sent from master esp32.
+* When the data is received,the servos pull the fingers leading to hand movements.
 
-### Acknowledgements and Resources
-  
-   - SRA VJTI Eklavya 2022
-   - Refered FreeRTOS for FreeRTOS API.
-   - Refered ESP_NOW for ESP-NOW API.
+
+![**flowchart**]()
+<!-- RESULTS AND DEMO -->
+## Results and Demo
+ 
+![**result gif**]()  
+
+<!-- CONTRIBUTORS -->
+## Contributors
+* kamakshi dhokey
+* vaidic gupta
 
 
+<!-- ACKNOWLEDGEMENTS AND REFERENCES -->
+## Acknowledgements and Resources
+* [SRA VJTI](http://sra.vjti.info/) Eklavya 2020
+* Special thanks 
+  om sheladia,rishikesh donadkar 
+* Refered [FreeRTOS](https://www.freertos.org/) for FreeRTOS API.
+* Refered [ESP_NOW](https://docs.espressif.com/projects/esp-idf/en/latest/esp32/api-reference/network/esp_now.html) for ESP-NOW API.
+
+
+
+<!-- LICENSE -->
+## License
+Describe your [License](LICENSE) for your project. 
