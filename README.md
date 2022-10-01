@@ -112,7 +112,7 @@ idf.py -p /dev/ttyUSB1 flash monitor
 <!-- CONTRIBUTORS -->
 ## Contributors
 * [Kamakshi Dhokey](https://github.com/K-dhokey)
-* Vaidic Gupta
+* [Vaidic Gupta](https://github.com/Vaidicgupta)
 
 
 <!-- ACKNOWLEDGEMENTS AND REFERENCES -->
