@@ -68,9 +68,10 @@ To read more about the project refer this [documentation](https://github.com/K-d
   You can visit the [ESP-IDF Programmming Guide](https://docs.espressif.com/projects/esp-idf/en/latest/get-started/index.html#installation-step-by-step) for the installation steps.
 
 ### Installation
-
-
-
+Clone the repo
+```sh
+https://github.com/K-dhokey/luke-arm.git
+```
 
 <!-- USAGE EXAMPLES -->
 ## Usage
@@ -119,7 +120,7 @@ idf.py -p /dev/ttyUSB1 flash monitor
 ## Acknowledgements and Resources
 * [SRA VJTI](http://sra.vjti.info/) Eklavya 2020
 * Special thanks 
-  [om sheladia](https://github.com/omsheladia) ,[rishikesh donadkar](https://github.com/RISHI27-dot) 
+  [Om Sheladia](https://github.com/omsheladia),[Rishikesh Donadkar](https://github.com/RISHI27-dot) 
 * Refered [FreeRTOS](https://www.freertos.org/) for FreeRTOS API.
 * Refered [ESP_NOW](https://docs.espressif.com/projects/esp-idf/en/latest/esp32/api-reference/network/esp_now.html) for ESP-NOW API.
 
