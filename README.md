@@ -68,9 +68,10 @@ To read more about the project refer this [documentation](https://github.com/K-d
   You can visit the [ESP-IDF Programmming Guide](https://docs.espressif.com/projects/esp-idf/en/latest/get-started/index.html#installation-step-by-step) for the installation steps.
 
 ### Installation
-
-
-
+clone the repo
+```sh
+https://github.com/K-dhokey/luke-arm.git
+```
 
 <!-- USAGE EXAMPLES -->
 ## Usage
