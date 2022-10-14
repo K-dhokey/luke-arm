@@ -80,7 +80,8 @@ https://github.com/K-dhokey/luke-arm.git
 ```
 idf.py menuconfig
 ```
-
+![menuconfig](https://github.com/K-dhokey/luke-arm/blob/main/assets/project-configuration.png)
+* Keep default configuration 
 ### Build
 ```
 idf.py build
