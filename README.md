@@ -131,4 +131,4 @@ idf.py -p /dev/ttyUSB1 flash monitor
 
 <!-- LICENSE -->
 ## License
-Describe your [License](LICENSE) for your project. 
+Describe your [License](https://github.com/K-dhokey/luke-arm/blob/main/license) for your project. 
