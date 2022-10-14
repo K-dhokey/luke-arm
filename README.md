@@ -107,7 +107,7 @@ idf.py -p /dev/ttyUSB1 flash monitor
 
 <!-- RESULTS AND DEMO -->
 ## Results and Demo
- 
+![**Setup**](https://github.com/K-dhokey/luke-arm/blob/main/assets/IMG-20221014-WA0003.jpg)
 
 
 <!-- CONTRIBUTORS -->
