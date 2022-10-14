@@ -107,8 +107,10 @@ idf.py -p /dev/ttyUSB1 flash monitor
 
 <!-- RESULTS AND DEMO -->
 ## Results and Demo
+* Setup
 ![**Setup**](https://github.com/K-dhokey/luke-arm/blob/main/assets/IMG-20221014-WA0003.jpg)
-
+* Gif
+![**Gif**](https://github.com/K-dhokey/luke-arm/blob/main/assets/ezgif.com-gif-maker.gif)
 
 <!-- CONTRIBUTORS -->
 ## Contributors
