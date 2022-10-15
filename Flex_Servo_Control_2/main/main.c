@@ -67,15 +67,15 @@ servo_config servo_d = {
 	.gen = MCPWM_OPR_B,
 };
 
-servo_config servo_e = {
-	.servo_pin = SERVO_E,
-	.min_pulse_width = 1000,
-	.max_pulse_width = 2000,
-	.max_degree = 180,
-	.mcpwm_num = MCPWM_UNIT_0,
-	.timer_num = MCPWM_TIMER_1,
-	.gen = MCPWM_OPR_A,
-};
+// servo_config servo_e = {
+// 	.servo_pin = SERVO_E,
+// 	.min_pulse_width = 1000,
+// 	.max_pulse_width = 2000,
+// 	.max_degree = 180,
+// 	.mcpwm_num = MCPWM_UNIT_0,
+// 	.timer_num = MCPWM_TIMER_1,
+// 	.gen = MCPWM_OPR_A,
+// };
 
 void mcpwm_example_servo_control(int State)
 {
