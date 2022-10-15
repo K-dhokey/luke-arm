@@ -1,132 +1,181 @@
-//Transmitter Code
-
+#include "sra_board.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
-#include "esp_wifi.h"
-#include "esp_log.h"
-#include "nvs_flash.h"
 #include "esp_now.h"
-#include "driver/adc.h"
-#include "esp_adc_cal.h"
+#include "esp_wifi.h"
+#include "nvs_flash.h"
+#include "esp_attr.h"
+#include "driver/mcpwm.h"
+#include "soc/mcpwm_periph.h"
+#include "servo.h"
 
-#define TAG "ESP_NOW"
+#define TAG "MCPWM_SERVO_CONTROL"
 
+#define SERVO_E;																																																																																											 16
+#define STRAIGHT 1;
+#define BENT 0;
 
-//Mac Address of transmitter and Receiver
-uint8_t esp_2[6] = {0x44, 0x17, 0x93, 0xe6, 0x34, 0x90};
-uint8_t esp_1[6] = {0x44, 0x17, 0x93, 0xe6, 0x36, 0x64};
+int State = STRAIGHT;
+int LastRotation = STRAIGHT;
+int adc_value;
+int Consec_straight = 0;
+int Consec_bent = 0;
 
-int int_value;
-static esp_adc_cal_characteristics_t adc1_chars;
+//Setting Configuration of Servo Motors
+servo_config servo_a = {
+	.servo_pin = SERVO_A,
+	.min_pulse_width = CONFIG_SERVO_A_MIN_PULSEWIDTH,
+	.max_pulse_width = CONFIG_SERVO_A_MAX_PULSEWIDTH,
+	.max_degree = CONFIG_SERVO_A_MAX_DEGREE,
+	.mcpwm_num = MCPWM_UNIT_0,
+	.timer_num = MCPWM_TIMER_0,
+	.gen = MCPWM_OPR_A,
+};
 
+servo_config servo_b = {
+	.servo_pin = SERVO_B,
+	.min_pulse_width = CONFIG_SERVO_B_MIN_PULSEWIDTH,
+	.max_pulse_width = CONFIG_SERVO_B_MAX_PULSEWIDTH,
+	.max_degree = CONFIG_SERVO_B_MAX_DEGREE,
+	.mcpwm_num = MCPWM_UNIT_0,
+	.timer_num = MCPWM_TIMER_0,
+	.gen = MCPWM_OPR_B,
+};
 
-typedef struct struct_message 
+servo_config servo_c = {
+	.servo_pin = SERVO_C,
+	.min_pulse_width = CONFIG_SERVO_C_MIN_PULSEWIDTH,
+	.max_pulse_width = CONFIG_SERVO_C_MAX_PULSEWIDTH,
+	.max_degree = CONFIG_SERVO_C_MAX_DEGREE,
+	.mcpwm_num = MCPWM_UNIT_0,
+	.timer_num = MCPWM_TIMER_1,
+	.gen = MCPWM_OPR_A,
+};
+
+servo_config servo_d = {
+	.servo_pin = SERVO_D,
+	.min_pulse_width = CONFIG_SERVO_D_MIN_PULSEWIDTH,
+	.max_pulse_width = CONFIG_SERVO_D_MAX_PULSEWIDTH,
+	.max_degree = CONFIG_SERVO_D_MAX_DEGREE,
+	.mcpwm_num = MCPWM_UNIT_0,
+	.timer_num = MCPWM_TIMER_1,
+	.gen = MCPWM_OPR_B,
+};
+
+servo_config servo_e = {
+	.servo_pin = SERVO_E,
+	.min_pulse_width = 1000,
+	.max_pulse_width = 2000,
+	.max_degree = 180,
+	.mcpwm_num = MCPWM_UNIT_0,
+	.timer_num = MCPWM_TIMER_1,
+	.gen = MCPWM_OPR_A,
+};
+
+void mcpwm_example_servo_control(int State)
 {
-  int servo_1;
-  int servo_2;
-  int servo_3;
-  int servo_4;
-} struct_message;
 
-
-// Create a struct_message called ServoData
-struct_message ServoData;
-
-char *mac_to_str(char *buffer, uint8_t *mac)
-{
-  sprintf(buffer, "%02x%02x%02x%02x%02x%02x", mac[0], mac[1], mac[2], mac[3], mac[4], mac[5]);
-  return buffer;
+	if (State == 1 /*&& LastRotation != 18*/)
+	// if(adc_value>200)
+	
+    {
+		printf("Straightening...");
+		set_angle_servo(&servo_a, 150);
+		set_angle_servo(&servo_b, 150);
+		set_angle_servo(&servo_c, 150);
+		set_angle_servo(&servo_d, 150);
+		//set_angle_servo(&servo_e, 180);
+		// LastRotation = 1;
+	}
+	else if (State == 0 /*&& LastRotation != 0*/)
+	// else if (adc_value<90)
+	
+    {
+		printf("Bending...");
+		set_angle_servo(&servo_a, 0);
+		set_angle_servo(&servo_b, 0);
+		set_angle_servo(&servo_c, 0);
+		set_angle_servo(&servo_d, 0);
+		//set_angle_servo(&servo_e, 0);
+		// LastRotation = 0;
+	}
 }
 
-void on_sent(const uint8_t *mac_addr, esp_now_send_status_t status)
+void on_receive(const uint8_t *mac, const uint8_t *incomingData, int len)
 {
-  char buffer[13];
-  switch (status)
-  {
-  case ESP_NOW_SEND_SUCCESS:
-    //ESP_LOGI(TAG, "message sent to %s", mac_to_str(buffer,(uint8_t *) mac_addr));
-    break;
-  case ESP_NOW_SEND_FAIL:
-    ESP_LOGE(TAG, "message sent to %s failed", mac_to_str(buffer,(uint8_t *) mac_addr));
-    break;
-  }
-}
+	if (mac == NULL || incomingData == NULL || len <= 0)
+	{
+		printf("Error while receving data");
+		vTaskDelay(100);
+		return;
+	}
+	memcpy(&adc_value, incomingData, sizeof(adc_value));
 
-void on_receive(const uint8_t *mac_addr, const uint8_t *data, int data_len)
-{
-  char buffer[13];
-  ESP_LOGI(TAG, "got message from %s", mac_to_str(buffer, (uint8_t *)mac_addr));
+	if (adc_value > 250)
+	{
+		if (Consec_straight >= 1)
+		{
+			State = STRAIGHT;
+			mcpwm_example_servo_control(State);
+			Consec_bent = 0;
+			Consec_straight = 0;
+		}
+		else
+		{
+			Consec_straight++;
+			Consec_bent = 0;
+		}
+	}
+	else if (adc_value < 90)
+	{
+		if (Consec_bent >= 1)
+		{
+			State = BENT;
+			mcpwm_example_servo_control(State);
+			Consec_bent = 0;
+			Consec_straight = 0;
+		}
+		else
+		{
+			Consec_bent++;
+			Consec_straight = 0;
+		}
+	}
 
-  printf("message: %.*s\n", data_len, data);
+	printf("The state is %s\n", (State == 1 ? "Straight" : "Bent"));
+	vTaskDelay(10);
+	
+
+	printf("%d\n", adc_value);
 }
 
 void app_main(void)
 {
-  uint8_t my_mac[6];
-  esp_efuse_mac_get_default(my_mac);
-  char my_mac_str[13];
-  ESP_LOGI(TAG, "My mac %s", mac_to_str(my_mac_str, my_mac));
-  bool is_current_esp1 = memcmp(my_mac, esp_1, 6) == 0;
-  uint8_t *peer_mac = is_current_esp1 ? esp_2 : esp_1;
+	nvs_flash_init();
+	tcpip_adapter_init();
+	ESP_ERROR_CHECK(esp_event_loop_create_default());
+	wifi_init_config_t cfg = WIFI_INIT_CONFIG_DEFAULT();
+	ESP_ERROR_CHECK(esp_wifi_init(&cfg));
+	ESP_ERROR_CHECK(esp_wifi_set_storage(WIFI_STORAGE_RAM));
+	ESP_ERROR_CHECK(esp_wifi_set_mode(WIFI_MODE_STA));
+	ESP_ERROR_CHECK(esp_wifi_start());
 
-  nvs_flash_init();
-  tcpip_adapter_init();
-  ESP_ERROR_CHECK(esp_event_loop_create_default());
-  wifi_init_config_t cfg = WIFI_INIT_CONFIG_DEFAULT();
-  ESP_ERROR_CHECK(esp_wifi_init(&cfg));
-  ESP_ERROR_CHECK(esp_wifi_set_storage(WIFI_STORAGE_RAM));
-  ESP_ERROR_CHECK(esp_wifi_set_mode(WIFI_MODE_STA));
-  ESP_ERROR_CHECK(esp_wifi_start());
+	ESP_ERROR_CHECK(esp_now_init());
+	ESP_ERROR_CHECK(esp_now_register_recv_cb(on_receive));
 
-  ESP_ERROR_CHECK(esp_now_init());
-  ESP_ERROR_CHECK(esp_now_register_send_cb(on_sent));
-  ESP_ERROR_CHECK(esp_now_register_recv_cb(on_receive));
+	//enabling servo motors i.e initialization of gpio pins 
+	enable_servo();
 
-  esp_now_peer_info_t peer;
-  memset(&peer, 0, sizeof(esp_now_peer_info_t));
-  memcpy(peer.peer_addr, peer_mac, 6);
+	
+	printf("%d\n", adc_value);
 
-  esp_now_add_peer(&peer);
-
-  char send_buffer[250];
-
-
-  esp_adc_cal_characterize(ADC_UNIT_1, ADC_ATTEN_DB_11, ADC_WIDTH_BIT_DEFAULT, 0, &adc1_chars);
-
-    adc1_config_width(ADC_WIDTH_BIT_DEFAULT);
-    adc1_config_channel_atten(ADC1_CHANNEL_4, ADC_ATTEN_DB_11);
-
-  for (int i = 0; i < 1; i++)
-  {
-    sprintf(send_buffer, "Hello from %s message %d", my_mac_str, i);
-    ServoData.servo_1 = 30 ;
-    ServoData.servo_2 = 90 ;
-    ServoData.servo_3 = 60 ;
-    ServoData.servo_4 = 45 ;
-
-    
-
-    // //Transmitting the Data   
-    // ESP_ERROR_CHECK(esp_now_send(esp_1,(uint8_t *)&ServoData, sizeof(ServoData)));
-    // vTaskDelay(pdMS_TO_TICKS(70));
-  }
-
-  while (1) 
-    {
-        int adc_value = adc1_get_raw(ADC1_CHANNEL_4);
-        printf("ADC Value: %d", adc_value);
-        printf("\n");
-        vTaskDelay(50/ portTICK_PERIOD_MS);
-    
-   //Transmitting the Data   
-    ESP_ERROR_CHECK(esp_now_send(esp_1,(uint8_t *)&adc_value, sizeof(adc_value)));
-    vTaskDelay(pdMS_TO_TICKS(50));
-    }
+	
 }
 
- 
-
-
+void loop()
+{
+	vTaskDelay(10);
+}
